@@ -537,7 +537,7 @@ function httpHandler(req, pathname, baseHost) {
   let urlStr = pathname;
 
   //const urlObj = newUrl(urlStr, 'https://' + baseHost);
-  const urlObj = newUrl(urlStr, "");
+  const urlObj = new URL(urlStr);
   reqHdrNew.set("Host", urlObj.host);
   //console.log("---httpHandler request urlObj---");
   //console.log(urlObj);
