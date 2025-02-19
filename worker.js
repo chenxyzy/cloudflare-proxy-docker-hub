@@ -539,6 +539,7 @@ function httpHandler(req, pathname, baseHost) {
   //const urlObj = newUrl(urlStr, 'https://' + baseHost);
   const urlObj = new URL(urlStr);
   reqHdrNew.set("Host", urlObj.host);
+  reqHdrRaw.delete("Authorization");
   //console.log("---httpHandler request urlObj---");
   //console.log(urlObj);
   //console.log("---httpHandler request reqHdrNew---");
@@ -562,9 +563,9 @@ function httpHandler(req, pathname, baseHost) {
  */
 async function proxy(urlObj, reqInit, rawLen) {
   //let l_response = await fetch(new Request(url, ));
-  const res = await fetch(urlObj.href);
+  //const res = await fetch(urlObj.href);
   //console.log(await res.clone().text());
-  //const res = await fetch(urlObj.href, reqInit);
+  const res = await fetch(urlObj.href, reqInit);
   const resHdrOld = res.headers;
   const resHdrNew = new Headers(resHdrOld);
   //console.log("---proxy response headers:---");
