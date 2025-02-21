@@ -467,10 +467,7 @@ export default {
     // 添加可能存在字段X-Amz-Content-Sha256
     if (request.headers.has("X-Amz-Content-Sha256")) {
       parameter.headers['X-Amz-Content-Sha256'] = getReqHeader("X-Amz-Content-Sha256");
-    } else {
-      parameter.headers['X-Amz-Content-Sha256'] = "";
     }
-
     // 发起请求并处理响应
     url.protocol = "https";
     //console.log('---new request url:---');
